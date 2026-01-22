@@ -62,8 +62,7 @@ let package = Package(
         ),
         .binaryTarget (
             name: "libgodot",
-            //path: "libgodot/libgodot.xcframework"
-            path: "../build/libgodot.xcframework"
+            path: "libgodot/libgodot.xcframework"
         ),
         //.systemLibrary(
         //    name: "libgodot"
