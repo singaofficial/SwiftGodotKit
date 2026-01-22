@@ -69,7 +69,7 @@ extension GodotInstance {
                     return 1
                 }
                 return 0
-            })
+            }, nil, nil, nil, nil, nil, nil)
         })
         if instance != nil {
             return GodotInstance(nativeHandle: instance!)
