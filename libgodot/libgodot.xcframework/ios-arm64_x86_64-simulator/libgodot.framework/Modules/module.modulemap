@@ -1,0 +1,6 @@
+framework module libgodot {
+  umbrella header "libgodot.h"
+  export *
+
+  module * { export * }
+}
