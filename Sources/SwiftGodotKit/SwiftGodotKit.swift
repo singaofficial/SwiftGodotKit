@@ -8,6 +8,7 @@ import Foundation
 import SwiftGodot
 import libgodot
 import QuartzCore
+import os.log
 @_implementationOnly import GDExtension
 
 var initHookCb: ((GDExtension.InitializationLevel) -> ())?
@@ -18,8 +19,23 @@ extension GDExtension.InitializationLevel {
     }
 }
 
+@Godot
+class NativeLog: Object {
+    
+    @Callable
+    func send(_ message: String, _ isError: Bool) {
+        guard let logger = GodotInstance.logger else { return }
+        os_log("%{public}@", log: logger, type: isError ? .error : .default, message)
+    }
+}
+
 func embeddedExtensionInit (userData: UnsafeMutableRawPointer?, l: GDExtensionInitializationLevel) {
     print ("SwiftEmbed: Register our types here, level: \(l)")
+    
+    if l == GDEXTENSION_INITIALIZATION_SCENE {
+        register(type: NativeLog.self)
+    }
+    
     if let cb = initHookCb {
         cb (GDExtension.InitializationLevel(integerValue: l.rawValue))
     }
@@ -52,8 +68,10 @@ func withUnsafePtr (strings: [String], callback: (UnsafeMutablePointer<UnsafeMut
 }
 
 extension GodotInstance {
+    public static var logger: OSLog?
     
-    public static func create(args: [String]) -> GodotInstance? {
+    public static func create(args: [String], logger: OSLog) -> GodotInstance? {
+        self.logger = logger
         var instance: UnsafeMutableRawPointer? = nil
         var argsWithCmd = [ Bundle.main.executablePath ?? "" ] + args
         withUnsafePtr(strings: argsWithCmd, callback: { cstr in
