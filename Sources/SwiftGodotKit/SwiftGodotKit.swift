@@ -25,7 +25,7 @@ class NativeLog: Object {
     @Callable
     func send(_ message: String, _ isError: Bool) {
         guard let logger = GodotInstance.logger else { return }
-        os_log("%{public}@", log: logger, type: isError ? .error : .default, message)
+        os_log("Godot Log: %{public}@", log: logger, type: isError ? .error : .default, message)
     }
 }
 
