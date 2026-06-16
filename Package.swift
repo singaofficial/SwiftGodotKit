@@ -20,7 +20,7 @@ let package = Package(
         .executable(name: "TrivialSample", targets: ["TrivialSample"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/singaofficial/SwiftGodot", exact: "1.0.0-singa")
+        .package(url: "https://github.com/singaofficial/SwiftGodot", exact: "4.6.0-singa")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
