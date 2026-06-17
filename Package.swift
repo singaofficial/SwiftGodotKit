@@ -20,7 +20,7 @@ let package = Package(
         .executable(name: "TrivialSample", targets: ["TrivialSample"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/singaofficial/SwiftGodot", exact: "4.6.0-singa")
+        .package(url: "https://github.com/singaofficial/SwiftGodot", exact: "4.6.3-singa")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -62,7 +62,8 @@ let package = Package(
         ),
         .binaryTarget (
             name: "libgodot",
-            path: "libgodot/libgodot.xcframework"
+            url: "https://github.com/singaofficial/SwiftGodotKit/releases/download/libgodot-4.6.3/libgodot.xcframework.zip",
+            checksum: "93b063ba5f8df57ff60faefeef899cf97de00c89a8f9f6316bdb2d4d2a5354d2"
         ),
         //.systemLibrary(
         //    name: "libgodot"

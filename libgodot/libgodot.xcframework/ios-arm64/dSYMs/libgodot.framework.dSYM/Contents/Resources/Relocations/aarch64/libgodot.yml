@@ -1,7 +1,0 @@
----
-triple:          'arm64-apple-darwin'
-binary-path:     '/Users/ates/Library/Developer/Xcode/DerivedData/libgodot-bacdfcodfmxhypdyumxdewxwsuxd/Build/Products/Release-iphoneos/libgodot.framework/libgodot'
-relocations:
-  - { offset: 0x33, size: 0x8, addend: 0x0, symName: _libgodotVersionString, symObjAddr: 0x0, symBinAddr: 0x31E5B30, symSize: 0x0 }
-  - { offset: 0x67, size: 0x8, addend: 0x0, symName: _libgodotVersionNumber, symObjAddr: 0x30, symBinAddr: 0x31E5B60, symSize: 0x0 }
-...
