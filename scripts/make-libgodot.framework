@@ -5,10 +5,13 @@ if test x$2 = x; then
 fi
 DIR=$1
 ODIR=$2
+set -e  # fail loudly if a source header is missing, rather than shipping a header-less framework
 rm -rf $ODIR/libgodot.xcframework
 tmp=/tmp/dir-$$
 mkdir $tmp
-cp $DIR/core/extension/gdextension_interface.h $tmp/gdextension_interface.h
+# Godot 4.6+ generates the interface header as gdextension_interface.gen.h, and
+# core/extension/libgodot.h includes it by that name -- so keep the .gen suffix.
+cp $DIR/core/extension/gdextension_interface.gen.h $tmp/gdextension_interface.gen.h
 cp $DIR/core/extension/libgodot.h $tmp/libgodot.h
 cat > $tmp/module.modulemap << EOF
 module libgodot {

@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/singaofficial/SwiftGodot",
       "state" : {
-        "revision" : "f6a503477c21734bcc5393f06f1c6221aec08db9",
-        "version" : "4.6.3-singa"
+        "revision" : "45b05201434f7415cfb9543adbc3baeae4eeaff6",
+        "version" : "4.6.3-singa.1"
       }
     }
   ],
