@@ -26,8 +26,9 @@ let package = Package(
         .executable(name: "TrivialSample", targets: ["TrivialSample"]),
     ],
     dependencies: [
-        // This revision is tag 0.75.0.
-        .package(url: "https://github.com/migueldeicaza/SwiftGodot", revision: "48112dd50fffe01f0af78e445a16991ecdc6bc94"),
+        // Pinned by tag (upstream uses the same commit by revision) so that packages depending
+        // on this one by version can resolve it.
+        .package(url: "https://github.com/migueldeicaza/SwiftGodot", exact: "0.75.0"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
