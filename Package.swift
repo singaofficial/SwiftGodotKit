@@ -26,9 +26,9 @@ let package = Package(
         .executable(name: "TrivialSample", targets: ["TrivialSample"]),
     ],
     dependencies: [
-        // Pinned by tag (upstream uses the same commit by revision) so that packages depending
-        // on this one by version can resolve it.
-        .package(url: "https://github.com/migueldeicaza/SwiftGodot", exact: "0.75.0"),
+        // Upstream 0.75.0 (48112dd) without unsafeFlags, pinned by tag: SwiftPM rejects both
+        // revision pins and unsafeFlags in packages consumed by version.
+        .package(url: "https://github.com/singaofficial/SwiftGodot", exact: "0.75.0-singa"),
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
